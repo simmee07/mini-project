@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Health Monitor</title>
+    <link rel="stylesheet" href="design.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Heart Health Monitor</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#personal">Personal</a></li>
+                <li><a href="#diet-workout">Diet and Workout</a></li>
+                <li><a href="#track">Track</a></li>
+                <li><a href="#qrt">QRT</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="active">
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <h2>What is Heart Disease?</h2>
+                    <p>Heart disease refers to various conditions that affect the heart and blood vessels, including coronary artery disease, heart valve disease, and arrhythmias.</p>
+                </div>
+                <div class="slide fade">
+                    <h2>Causes of Heart Disease</h2>
+                    <p>Common causes include high blood pressure, high cholesterol, smoking, obesity, physical inactivity, and unhealthy diet.</p>
+                </div>
+                <div class="slide fade">
+                    <h2>Statistics</h2>
+                    <p>Heart disease is the leading cause of death globally, responsible for about 31% of all deaths worldwide.</p>
+                </div>
+                <div class="slide fade">
+                    <h2>Prevention</h2>
+                    <p>Maintain a healthy lifestyle with regular exercise, balanced diet, stress management, and avoiding smoking and excessive alcohol consumption.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="personal">
+            <h2>Personal Information</h2>
+            <form id="personal-form">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" required>
+
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="pulse">Pulse:</label>
+                <input type="number" id="pulse" name="pulse" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="stress">Stress Level (1-5):</label>
+                <input type="range" id="stress" name="stress" min="1" max="5" required>
+
+                <label for="alcohol">Consume Alcohol:</label>
+                <select id="alcohol" name="alcohol" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="fam-history">Previous records of health issues in family?</label>
+                <select id="fam-history" name="fam-history" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="smoke">Do you smoke?if yes,how often:</label>
+                <select id="smoke" name="smoke" required>
+                    <option value="">Select</option>
+                    <option value="yes">No, I don't smoke</option>
+                    <option value="no">yes, 1-2 cigarette a week</option>
+                    <option value="no">yes, 10-14 cigarette a week</option>
+                    <option value="no">yes, 3-5 cigarette per day</option>
+                </select>
+                <label for="married">Are you married?</label>
+                <select id="married" name="married" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="active">How much would you rate your daily activity level out of (1-5):</label>
+                <input type="range" id="active" name="active" min="1" max="5" required>
+                
+                <label for="diet">How would you like to rate your diet? (1-5):</label>
+                <input type="range" id="diet" name="diet" min="1" max="5" required>
+
+                <label for="kidney">Any previous cases of kidney failure?</label>
+                <select id="kidney" name="kidney" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            
+                <button type="submit">Save</button>
+            </form>
+            <div id="personal-data-display" class="data-display">
+                <h3>Your Personal Information</h3>
+                <div id="bmi-display"></div>
+                <div id="risk-assessment"></div>
+                <div id="personal-data-content"></div>
+            </div>
+        </section>
+
+    <section id="diet-workout">
+        <h2>DIET AND WORKOUT</h2>
+            <div class="tab-content">
+              <div class="tab-pane active" id="diet-tips">
+                <h3>Diet Tips</h3>
+                <ul>
+                  <li>Eat a balanced diet with plenty of fruits, vegetables, whole grains, and lean protein sources.</li>
+                  <li>Limit your intake of sugary drinks, fast food, and processed snacks.</li>
+                  <li>Stay hydrated by drinking plenty of water throughout the day.</li>
+                  <li>Aim to cook at home most nights and pack healthy lunches for work or school.</li>
+                </ul>
+              </div>
+              <div class="tab-pane" id="workout-tips">
+                <h3>Workout Tips</h3>
+                <ul>
+                  <li>Aim to exercise for at least 30 minutes per day, most days of the week.</li>
+                  <li>Incorporate a mix of cardio, strength training, and flexibility exercises into your routine.</li>
+                  <li>Find activities you enjoy, such as walking, running, swimming, or group fitness classes.</li>
+                  <li>Make sure to warm up before exercising and cool down afterwards to prevent injury.</li>
+                </ul>
+              </div>
+            </div>
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#diet-tips" data-toggle="tab">Diet Tips</a></li>
+              <li><a href="#workout-tips" data-toggle="tab">Workout Tips</a></li>
+            </ul>
+          </section>
+    </section>
+        <section id="track">
+            <h2>Health Metrics Tracking</h2>
+            <form id="track-form">
+                <label for="bp-systolic">Blood Pressure (Systolic):</label>
+                <input type="number" id="bp-systolic" name="bp-systolic" required>
+
+                <label for="bp-diastolic">Blood Pressure (Diastolic):</label>
+                <input type="number" id="bp-diastolic" name="bp-diastolic" required>
+
+                <label for="sugar">Blood Sugar:</label>
+                <input type="number" id="sugar" name="sugar" required>
+
+                <label for="cholesterol">Cholesterol:</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+
+                <label for="ecg">Resting ECG:</label>
+                <input type="number" id="ecg" name="ecg" required>
+
+                <label for="pulse">Pulse Rate:</label>
+                <input type="number" id="pulse" name="pulse" required>
+
+                <button type="submit">Add Data</button>
+            </form>
+
+            <div class="chart-container">
+                <canvas id="healthChart"></canvas>
+            </div>
+        </section>
+
+        <section id="qrt">
+            <h2>Quick Risk Test (QRT)</h2>
+            <form id="qrt-form" class="attractive-form">
+                <div class="form-group">
+                    <label for="restlessness">Are you feeling restlessness?</label>
+                    <select id="restlessness" name="restlessness" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="fatigue">Do you feel fatigue?</label>
+                    <select id="fatigue" name="fatigue" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="swelling">Do you feel swelling in ankles?</label>
+                    <select id="swelling" name="swelling" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="chest-pain">Rate your chest pain:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="pain-light" name="chest-pain" value="light" required>
+                        <label for="pain-light">Light</label>
+                        <input type="radio" id="pain-medium" name="chest-pain" value="medium">
+                        <label for="pain-medium">Medium</label>
+                        <input type="radio" id="pain-severe" name="chest-pain" value="severe">
+                        <label for="pain-severe">Severe</label>
+                    </div>
+                </div>
+        
+                <button type="submit">Submit QRT</button>
+            </form>
+            <div id="qrt-result" class="result-display"></div>
+        </section>
+
+        <section id="help">
+            <h2>Help</h2>
+            <p>For assistance, please contact our support team at support@hearthealth.com</p>
+        </section>
+    </main>
+
+    <script src="function.js"></script>
+</body>
+</html>
